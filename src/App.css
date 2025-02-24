@@ -1,0 +1,269 @@
+/* src/App.css */
+.floating-text {
+  position: fixed;
+  bottom: 10%; /* 让文字固定在屏幕的底部 */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "Pirata One", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 0, 0, 0.3); /* 更细腻的文字阴影 */
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite alternate;
+  opacity: 1.0;
+  z-index: 5;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-20px); /* 增加浮动的高度，使效果更明显 */
+  }
+}
+/* src/App.css */
+.App {
+  position: relative;
+  height: 100vh;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 10; /* 确保导航栏在顶部 */
+  background: transparent; /* 背景透明 */
+}
+
+.logo-image {
+  height: 60px; /* 根据需要调整 logo 的大小 */
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: flex-end; /* 按钮靠右对齐 */
+  gap: 15px; /* 按钮间距 */
+  margin-top: -15px; 
+}
+
+.nav-button {
+  background: none;
+  color: white;
+  font-size: 24px;
+  font-family: "Pirata One", serif;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  padding-right: 60px;
+  transition: transform 0.3s ease;
+}
+
+
+.nav-button:hover {
+  transform: translateY(-5px); /* 按钮在悬浮时上移 */
+}
+
+/* Contact 信件卡片的遮罩层 */
+.contact-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+/* 信件卡片 */
+.contact-card {
+  background: #fff;
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(100%);
+  animation: slide-up 0.5s ease forwards;
+}
+
+/* 卡片内容样式 */
+.contact-card h2 {
+  font-family: "Pirata One", serif;
+  color: #333;
+  text-align: center;
+}
+
+.contact-card p {
+  font-family: "Pirata One", serif;
+  color: #555;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* 上升动画 */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Team 外部点击区域 */
+.team-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+  pointer-events: auto;
+}
+
+/* Team 卡片 - 左三右二，游戏卡片风格 */
+.team-section-cards {
+  position: fixed;
+  top: 15%;
+  left: 5%;
+  width: 90%;
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 999;
+  font-family: "Pirata One", serif;
+}
+
+.team-card {
+  width: 200px;
+  height: 300px;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: auto;
+  transition: transform 0.3s;
+  font-family: "Pirata One", serif;
+}
+
+.team-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.team-card h3 {
+  margin: 10px 0 5px;
+}
+
+.team-card p {
+  color: #777;
+  margin: 10px 0 0;  /* 设置 p 上方的间距 */
+}
+
+/* 左边三张 */
+.card1 {
+  left: 0%;
+  top: 0%;
+  transform: rotate(10deg);
+}
+.card2 {
+  left: 15%;
+  top: 35%;
+  transform: rotate(-10deg);
+}
+.card3 {
+  left: 0%;
+  top: 60%;
+  transform: rotate(10deg);
+}
+
+/* 右边两张 */
+.card4 {
+  right: 5%;
+  top: 10%;
+  transform: rotate(8deg);
+}
+.card5 {
+  right: 16%;
+  top: 60%;
+  transform: rotate(-8deg);
+}
+
+/* 鼠标悬停效果 */
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+/* App.css */
+.game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden; /* Prevent overflow on the overlay */
+  font-family: "Pirata One", serif;
+}
+
+.game-card {
+  background: #fff;
+  width: 60%;
+  max-width: 800px;
+  max-height: 90%; /* Limits the card height */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow-y: auto; /* Enables vertical scrolling */
+  animation: slideDown 0.5s ease forwards;
+  transform: translateY(-100%);
+  z-index: 12;
+  font-family: "Pirata One", serif;
+}
+
+.game-card h2 {
+  text-align: center;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.game-video {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.game-image {
+  width: 100%;
+  margin-top: 10px;
+}
