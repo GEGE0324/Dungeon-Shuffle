@@ -34,7 +34,6 @@ const textArray = [
 
 const Texts = () => {
   const [scrollProgress, setScrollProgress] = useState(0);  // 用于存储百分比进度
-  const [isScrolling, setIsScrolling] = useState(false);  // 判断是否在滚动
 
   const maxProgress = textArray.length - 1;  // 进度的最大值
 
